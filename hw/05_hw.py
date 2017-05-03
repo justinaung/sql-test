@@ -1,5 +1,5 @@
 import sqlite3
-from random import randrange
+from random import randint
 
 with sqlite3.connect('cars.db') as connection:
     c = connection.cursor()
@@ -16,9 +16,9 @@ with sqlite3.connect('cars.db') as connection:
     orders = list()
     for row in rows:
         for i in range(0, 3):
-            year = randrange(2000, 2017)
-            month = str(randrange(1, 12)).zfill(2)
-            day = str(randrange(1,28)).zfill(2)
+            year = randint(2000, 2017)
+            month = str(randint(1, 12)).zfill(2)
+            day = str(randint(1,28)).zfill(2)
             orders.append(
                 (row[0], row[1], f'{year}-{month}-{day}')
             )
